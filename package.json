@@ -1,0 +1,16 @@
+{
+  "name": "ecomunidade",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Recode",
+  "license": "ISC",
+  "description": "Plataforma comunitária criada para auxiliar em situações de emergência, com foco em enchentes e desastres naturais.",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "ecomunidade": "file:",
+    "leaflet": "^1.9.4"
+  }
+}
