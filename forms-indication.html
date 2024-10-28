@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Alertas - ECO.munidade</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+  <header class="bg-dark  text-white text-center py-3">
+    <div class="container">
+      <h1 class="display-5">Cadastro de Alertas e Informações</h1>
+      <p class="lead">Registre pontos de coleta e abrigos temporários</p>
+    </div>
+  </header>
+  
+  <section class="container my-5">
+    <h2 class="display-6 text-primary text-center mb-4">Funcionamento do Mapa de Alertas</h2>
+    <p class="lead text-dark text-center mb-4">
+      O mapa de alertas fornece informações vitais em tempo real, destacando áreas de risco, abrigos temporários e pontos de coleta de forma clara e acessível.
+    </p>
+    <div class="row gy-4">
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">1. Mapa Interativo</h5>
+            <p class="card-text text-secondary">
+              <strong>Camadas de Informação:</strong> O mapa é dividido em camadas que incluem:
+              <ul class="list-unstyled mt-2">
+                <li><strong>Zonas de Risco:</strong> Áreas com risco de alagamento, baseadas nas condições meteorológicas.</li>
+                <li><strong>Abrigos Temporários:</strong> Locais seguros com capacidade e serviços disponíveis.</li>
+                <li><strong>Pontos de Coleta:</strong> Locais para doações e coleta de suprimentos.</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">2. Fontes de Dados Confiáveis</h5>
+            <p class="card-text text-secondary">
+              <strong>Atualização Contínua:</strong> Dados de fontes como INMET e CEMADEN garantem alertas precisos.
+              <br><strong>Informações de Usuários Validadas:</strong> Registros de usuários são verificados para garantir precisão.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">3. Notificações em Tempo Real</h5>
+            <p class="card-text text-secondary">
+              <strong>Alertas para Usuários Cadastrados:</strong> Notificações em tempo real sobre mudanças climáticas para moradores em áreas de risco.
+              <br><strong>Filtros e Localização:</strong> Usuários podem filtrar alertas por região específica.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-dark fw-bold">4. Sistema de Animações e Atualizações Visuais</h5>
+            <p class="card-text text-secondary">
+              <strong>Indicadores e Cores:</strong> Zonas de risco em vermelho, abrigos e pontos de coleta com ícones distintos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container my-5">
+    <div class="mb-4 text-center">
+      <h2>Escolha o tipo de cadastro</h2>
+      <select class="form-select w-50 mx-auto" id="formSelector" onchange="showForm()">
+        <option value="">Selecione uma opção</option>
+        <option value="collectionPointForm">Ponto de Coleta</option>
+        <option value="temporaryShelterForm">Abrigos Temporários</option>
+        <option value="suggestionForm">Indicação de Novo Ponto ou Abrigo</option>
+      </select>
+    </div>
+
+    <div id="collectionPointForm" class="form-section" style="display: none;">
+      <h3 class="mb-3">Cadastro de Ponto de Coleta</h3>
+      <form>
+        <div class="mb-3">
+          <label for="collectionName" class="form-label">Nome do Ponto de Coleta</label>
+          <input type="text" class="form-control" id="collectionName" required />
+        </div>
+        <div class="mb-3">
+          <label for="collectionAddress" class="form-label">Endereço Completo</label>
+          <input type="text" class="form-control" id="collectionAddress" required />
+        </div>
+        <div class="mb-3">
+          <label for="structureType" class="form-label">Tipo de Estrutura</label>
+          <input type="text" class="form-control" id="structureType" required />
+        </div>
+        <div class="mb-3">
+          <label for="storageCapacity" class="form-label">Capacidade Máxima de Armazenamento</label>
+          <input type="number" class="form-control" id="storageCapacity" required />
+        </div>
+        <div class="mb-3">
+          <label for="operationHours" class="form-label">Horário de Funcionamento</label>
+          <input type="text" class="form-control" id="operationHours" required />
+        </div>
+        <div class="mb-3">
+          <label for="contactInfo" class="form-label">Contato Responsável</label>
+          <input type="text" class="form-control" id="contactInfo" required />
+        </div>
+        <div class="mb-3">
+          <p><a href="assets/termo_de_compromisso.docx" download>Baixar e Ler o Termo de Compromisso</a></p>
+          <input type="checkbox" class="form-check-input" id="termsReadCollection" required />
+          <label class="form-check-label" for="termsReadCollection">Declaro que li e aceito o Termo de Compromisso</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+
+    <div id="temporaryShelterForm" class="form-section" style="display: none;">
+      <h3 class="mb-3">Cadastro de Abrigos Temporários</h3>
+      <form>
+        <div class="mb-3">
+          <label for="shelterName" class="form-label">Nome do Abrigo</label>
+          <input type="text" class="form-control" id="shelterName" required />
+        </div>
+        <div class="mb-3">
+          <label for="shelterAddress" class="form-label">Endereço Completo</label>
+          <input type="text" class="form-control" id="shelterAddress" required />
+        </div>
+        <div class="mb-3">
+          <label for="shelterCapacity" class="form-label">Capacidade Total</label>
+          <input type="number" class="form-control" id="shelterCapacity" required />
+        </div>
+        <div class="mb-3">
+          <label for="shelterStructure" class="form-label">Tipo de Estrutura</label>
+          <input type="text" class="form-control" id="shelterStructure" required />
+        </div>
+        <div class="mb-3">
+          <label for="shelterResources" class="form-label">Condições e Recursos Disponíveis</label>
+          <input type="text" class="form-control" id="shelterResources" required />
+        </div>
+        <div class="mb-3">
+          <label for="shelterHours" class="form-label">Horário de Funcionamento</label>
+          <input type="text" class="form-control" id="shelterHours" required />
+        </div>
+        <div class="mb-3">
+          <label for="emergencyContact" class="form-label">Contato de Emergência</label>
+          <input type="tel" class="form-control" id="emergencyContact" required />
+        </div>
+        <div class="mb-3">
+          <p><a href="assets/termo_de_compromisso.docx" download>Baixar e Ler o Termo de Compromisso</a></p>
+          <input type="checkbox" class="form-check-input" id="termsReadShelter" required />
+          <label class="form-check-label" for="termsReadShelter">Declaro que li e aceito o Termo de Compromisso</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+
+    <div id="suggestionForm" class="form-section" style="display: none;">
+      <h3 class="mb-3">Indicação de Novo Ponto ou Abrigo</h3>
+      <form>
+        <div class="mb-3">
+          <label for="suggestionName" class="form-label">Nome do Indicado</label>
+          <input type="text" class="form-control" id="suggestionName" required />
+        </div>
+        <div class="mb-3">
+          <label for="suggestionAddress" class="form-label">Endereço Completo e Pontos de Referência</label>
+          <input type="text" class="form-control" id="suggestionAddress" required />
+        </div>
+        <div class="mb-3">
+          <label for="suggestionType" class="form-label">Tipo de Estrutura</label>
+          <input type="text" class="form-control" id="suggestionType" required />
+        </div>
+        <div class="mb-3">
+          <label for="suggestionContact" class="form-label">Informações de Contato</label>
+          <input type="text" class="form-control" id="suggestionContact" />
+        </div>
+        <div class="mb-3">
+          <p><a href="assets/termo_de_compromisso.docx" download>Baixar e Ler o Termo de Compromisso</a></p>
+          <input type="checkbox" class="form-check-input" id="termsReadSuggestion" required />
+          <label class="form-check-label" for="termsReadSuggestion">Declaro que li e aceito o Termo de Compromisso</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p>© ECO.munidade - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function showForm() {
+        const selectedForm = document.getElementById("formSelector").value;
+        const forms = document.querySelectorAll(".form-section");
+        forms.forEach((form) => (form.style.display = "none"));
+        if (selectedForm) {
+          document.getElementById(selectedForm).style.display = "block";
+        }
+      }
+
+      const formSelector = document.getElementById("formSelector");
+      if (formSelector) {
+        formSelector.addEventListener("change", showForm);
+      }
+
+      const forms = document.querySelectorAll("form");
+      forms.forEach(form => {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Formulário enviado com sucesso!");
+          window.location.href = "alerts.html";
+        });
+      });
+    });
+  </script>
+</body>
+</html>

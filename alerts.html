@@ -6,16 +6,16 @@
   <title>Alertas de Enchentes - ECO.munidade</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 </head>
 
-<body>
-  <!-- Header -->
+<body class="bg-light text-dark">
+
   <header class="bg-dark text-white text-center py-3">
     <div class="container">
       <h1 class="display-5">Alertas de Enchentes</h1>
       <p class="lead">Mapa das áreas de risco e alertas em tempo real no Rio Grande do Sul</p>
-      <nav class="navbar navbar-expand-lg navbar-dark mb-5">
+      <nav class="navbar navbar-expand-lg navbar-dark mt-4">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
             aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,9 +25,8 @@
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item"><a class="nav-link active" href="alerts.html">Alertas</a></li>
-              <li class="nav-item"><a class="nav-link" href="transporte.html">Transporte</a></li>
-              <li class="nav-item"><a class="nav-link" href="abrigos.html">Abrigos</a></li>
-              <li class="nav-item"><a class="nav-link" href="termos.html">Termos de Uso</a></li>
+              <li class="nav-item"><a class="nav-link" href="transport.html">Transporte</a></li>
+              <li class="nav-item"><a class="nav-link" href="terms.html">Termos de Uso</a></li>
             </ul>
           </div>
         </div>
@@ -35,73 +34,72 @@
     </div>
   </header>
 
-  <!-- Mapa Interativo -->
-  <main class="container my-4">
-    <section class="text-center mb-4">
-      <h2 class="mb-3">Áreas de Risco e Alertas</h2>
-      <p>Visualize zonas de risco, abrigos temporários e pontos de coleta no Rio Grande do Sul.</p>
-    </section>
-    <div id="map" style="height: 500px;"></div>
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-md-9">
+        <section class="text-center mb-4">
+          <h2 class="display-6 text-primary fw-bold ">Áreas de Risco e Alertas</h2>
+          <p class="text-muted">Visualize as áreas de risco de enchente e mantenha-se informado.</p>
+        </section>
+        <div id="map" class="border rounded" style="height: 500px;"></div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cadastro de Informações</h5>
+            <p class="card-text text-muted">Colabore com o ECO.munidade cadastrando novas áreas de risco, pontos de coleta ou abrigos temporários. Sua ajuda é essencial para manter a comunidade informada e segura.</p>
+            <a href="forms-indication.html" class="btn btn-primary">Acessar Cadastro</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <!-- Seção de Notificações -->
-  <section id="notificacoes" class="py-5 bg-light">
+
+  <section id="notificacoes" class="py-5" style="background-color: #1e3a5f;">
     <div class="container">
       <header class="text-center mb-4">
-        <h2 class="display-5">Seção de Notificações</h2>
-        <p class="lead">Alertas de emergência e informações atualizadas</p>
+        <h2 class="display-6 text-white">Seção de Notificações</h2>
+        <p class="lead text-light">Alertas de emergência e informações atualizadas</p>
       </header>
       
       <div class="row gy-4">
-        <!-- Notificação 1 -->
         <div class="col-md-6">
           <div class="alert alert-danger d-flex align-items-center" role="alert">
             <i class="bi bi-exclamation-triangle-fill me-2"></i>
-            <div>
-              <strong>Alerta de Enchente</strong>: Inundações esperadas nas próximas 24 horas. Fique atento!
-            </div>
+            <div><strong>Alerta de Enchente:</strong> Inundações esperadas nas próximas 24 horas. Fique atento!</div>
           </div>
         </div>
         
-        <!-- Notificação 2 -->
         <div class="col-md-6">
           <div class="alert alert-warning d-flex align-items-center" role="alert">
             <i class="bi bi-exclamation-circle-fill me-2"></i>
-            <div>
-              <strong>Risco de Deslizamento</strong>: Áreas montanhosas estão em risco após fortes chuvas.
-            </div>
+            <div><strong>Risco de Deslizamento:</strong> Áreas montanhosas estão em risco após fortes chuvas.</div>
           </div>
         </div>
 
-        <!-- Notificação 3 -->
         <div class="col-md-6">
           <div class="alert alert-info d-flex align-items-center" role="alert">
             <i class="bi bi-info-circle-fill me-2"></i>
-            <div>
-              <strong>Atualização Climática</strong>: Previsão de mais chuvas para o fim da semana.
-            </div>
+            <div><strong>Atualização Climática:</strong> Previsão de mais chuvas para o fim da semana.</div>
           </div>
         </div>
 
-        <!-- Notificação 4 -->
         <div class="col-md-6">
           <div class="alert alert-success d-flex align-items-center" role="alert">
             <i class="bi bi-check-circle-fill me-2"></i>
-            <div>
-              <strong>Área Segura</strong>: Abrigos temporários estão prontos para receber moradores.
-            </div>
+            <div><strong>Área Segura:</strong> Abrigos temporários estão prontos para receber moradores.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
-    <p>© ECO.munidade - Todos os direitos reservados</p>
+    <p class="mb-0">© ECO.munidade - Todos os direitos reservados</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="node_modules/leaflet/dist/leaflet.js"></script>
   <script src="assets/js/alert-map.js"></script>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logística de Transporte - ECO.munidade</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+</head>
+
+<body class="bg-light text-dark">
+  <header class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <h1 class="display-5 ">Logística de Transporte</h1>
+      <p class="lead">Organização do transporte seguro e eficiente de doações</p>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="alerts.html">Alertas</a></li>
+            <li class="nav-item"><a class="nav-link active" href="transport.html">Transporte</a></li>
+            <li class="nav-item"><a class="nav-link" href="terms.html">Termos de Uso</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <section class="text-center mb-5">
+      <h1 class="display-6 fw-bold text-primary">Funcionamento da Logística de Transporte</h1>
+      <p class="lead text-muted">
+        A logística do transporte de doações é organizada para garantir que as doações cheguem de forma segura e eficiente aos locais onde são mais necessárias.
+      </p>
+    </section>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">1. Cadastro de Voluntários de Transporte</h5>
+            <p class="card-text text-muted">
+              Motoristas interessados em transportar doações se cadastram, informando tipo de veículo, capacidade e rotas disponíveis. Cada cadastro passa por uma verificação básica de identidade.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">2. Cadastro de Pontos de Coleta</h5>
+            <p class="card-text text-muted">
+              Locais de apoio se registram como pontos de coleta, informando endereço, horário de funcionamento e capacidade. Cada local passa por uma validação interna.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">3. Conexão entre Pontos e Voluntários</h5>
+            <p class="card-text text-muted">
+              Voluntários visualizam uma lista de pontos de coleta e selecionam os mais próximos de acordo com a rota. Após a seleção, o voluntário recebe uma confirmação.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">4. Código de Confirmação</h5>
+            <p class="card-text text-muted">
+              Voluntários recebem um código de confirmação ao retirar as doações, que será validado no destino para garantir a entrega conforme planejado. Check-ins manuais permitem o rastreamento.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">5. Entrega e Confirmação</h5>
+            <p class="card-text text-muted">
+              No destino final, o voluntário apresenta o código de confirmação para validar a entrega. A transação é registrada como recebida no sistema.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h3 class="text-center mb-4 text-primary">Cadastrar Novo Transporte ou Ponto de Coleta</h3>
+      <div class="text-center mb-3">
+        <select class="form-select w-50 mx-auto" id="formSelector" onchange="showForm()">
+          <option value="">Selecione uma opção</option>
+          <option value="volunteerForm">Voluntário de Transporte</option>
+          <option value="collectionPointForm">Ponto de Coleta</option>
+        </select>
+      </div>
+
+      <div id="volunteerForm" class="form-section" style="display: none;">
+        <h4 class="mb-3">Cadastro de Voluntário de Transporte</h4>
+        <form>
+          <div class="mb-3">
+            <label for="volunteerName" class="form-label">Nome Completo</label>
+            <input type="text" class="form-control" id="volunteerName" required>
+          </div>
+          <div class="mb-3">
+            <label for="vehicleType" class="form-label">Tipo de Veículo</label>
+            <input type="text" class="form-control" id="vehicleType" required>
+          </div>
+          <div class="mb-3">
+            <label for="loadCapacity" class="form-label">Capacidade de Carga</label>
+            <input type="number" class="form-control" id="loadCapacity" required>
+          </div>
+          <div class="mb-3">
+            <label for="availability" class="form-label">Disponibilidade (Horário/Rota)</label>
+            <input type="text" class="form-control" id="availability" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
+        </form>
+      </div>
+
+      <div id="collectionPointForm" class="form-section" style="display: none;">
+        <h4 class="mb-3">Cadastro de Ponto de Coleta</h4>
+        <form>
+          <div class="mb-3">
+            <label for="collectionName" class="form-label">Nome do Ponto de Coleta</label>
+            <input type="text" class="form-control" id="collectionName" required>
+          </div>
+          <div class="mb-3">
+            <label for="collectionAddress" class="form-label">Endereço Completo</label>
+            <input type="text" class="form-control" id="collectionAddress" required>
+          </div>
+          <div class="mb-3">
+            <label for="operationHours" class="form-label">Horário de Funcionamento</label>
+            <input type="text" class="form-control" id="operationHours" required>
+          </div>
+          <div class="mb-3">
+            <label for="capacity" class="form-label">Capacidade Máxima</label>
+            <input type="number" class="form-control" id="capacity" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p>© ECO.munidade - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showForm() {
+      const selectedForm = document.getElementById("formSelector").value;
+      const forms = document.querySelectorAll(".form-section");
+      forms.forEach(form => form.style.display = "none");
+      if (selectedForm) {
+        document.getElementById(selectedForm).style.display = "block";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const forms = document.querySelectorAll("form");
+      forms.forEach(form => {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Cadastro enviado com sucesso!");
+          window.location.href = "transport.html";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
